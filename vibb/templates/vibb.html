@@ -1,0 +1,238 @@
+<style type="text/css">
+  html {
+    height: 100%;
+    margin-bottom: 0.01em;
+}
+body {
+    overflow:auto;
+    padding-top:  0;
+}
+</style>
+<html>
+<head>
+<title>SPDC app </title>
+<link rel="icon" type="image/jpg" href="/static/iitklogo.jpg"/>
+</head>
+
+<div class="header">
+<center>  
+<img src="/static/iitklogo.jpg" width =100 align ="left" hspace="20" />
+<p class="small" >
+<b><br><font size="5"><font color ="Maroon ">Quantum Optics and Entanglement Group</font></font></br>
+<br><font color ="DarkBlue"> Anand Kumar Jha</font> </br>
+<br><font color= "#993300"> Department of Physics, Indian Institute of Technology (IIT) Kanpur</font> </br>
+<br></br>
+</b>
+</p>
+</center>
+
+</div>
+
+
+<style>
+
+.header {
+  background-color: white;
+    right: 0;
+    top: 20 px;
+    left:  0;
+    border-bottom-style: solid;
+    border-bottom-color: #6666ff ;
+    border-bottom-width :3px;
+  }
+  </style>
+
+
+<style>
+p.small {
+    line-height: 0.65;
+}
+</style>
+
+
+  
+<style>
+.sidenav {
+    width: 110px;
+    z-index: 1;
+    top: 0px;
+    left: 0;
+    
+    border-right-style: solid;
+    border-right-color: #6666ff ;
+    border-right-width :2px;
+    padding-top: 0px;
+    padding-left: 25px;
+    padding-right: 10px;
+    float: left;
+    
+}
+
+.main {
+    top: 0px;
+    margin-left: 150px; /* Same as the width of the sidenav */
+    font-size: 14px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+#wrapa{
+  height: 110%;
+}
+</style>
+
+
+
+
+
+<body>
+
+<div id="wrapa">
+<div class="sidenav">
+   <b>
+   <br> <a href="http://home.iitk.ac.in/~akjha/Welcome.htm">Home</a></br>
+   <br>  <a href="http://home.iitk.ac.in/~akjha/Anand%20Jha%20Bio.htm">Bio</a> </br>
+   <br>  <a href="http://home.iitk.ac.in/~akjha/Research.htm">Research</a></br>
+   <br> <a href="http://home.iitk.ac.in/~akjha/Teaching.htm">Teaching</a></br>
+   <br> <a href="http://home.iitk.ac.in/~akjha/People.htm">People</a> </br>
+  <br>  <a href="http://home.iitk.ac.in/~akjha/Publications.htm">Publications</a></br>
+  <br> <a href="http://home.iitk.ac.in/~akjha/Presentations.htm">Presentations</a></br>
+  <br> <a href="http://home.iitk.ac.in/~akjha/Contact.htm">Contact</a></br>
+  <br> <a href="http://home.iitk.ac.in/~akjha/Openings.htm">Positions</a></br>
+  <br> <a href="http://home.iitk.ac.in/~akjha/QuIC%20Talks.htm">Quantum Information and Coherence (QuIC) Talks</a></br>
+  <br> <a href="http://www.iitk.ac.in/phy/">Dept of Physics</a></br>
+  <br>  <a href="http://www.iitk.ac.in/">IITK home</a></br>
+  <br></br>
+  </b>
+</div>
+
+
+<style>
+table{
+     background-color: #ffe6ff;
+     table-layout: fixed ;
+     width: 380px; 
+}
+tr {
+     padding: 55px;
+    text-align: right;
+}
+td {
+    height: 40px;
+    vertical-align: middle;
+}
+</style>
+
+
+
+<style>
+#wrap{
+  width: 1150px;
+}
+.left{
+  top: 0px;
+  width:390px;
+  height: 250px;
+  background-color: blue;
+  float: left;
+}
+.right{
+  top: 0px;
+  width:750px;
+  height: 250px;
+  background-color: red;
+  float:right;
+}
+
+.lrbelow{
+  top: 100px;
+  width: 1150px;
+  background-color: green;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
+
+
+<div class="main">
+  <div id= "wrap">
+    <div class= "left">
+<form method=post action="">{% csrf_token %}
+ 
+<table style= "font-weight: bold;color:#000066;" >
+  {% for field in form %}
+    
+    <tr>
+    <td>{{ field.label }} :</td> 
+    <td>{{ field }}</td>
+     
+    </tr>
+    
+  {% endfor %}
+</table>
+</div>
+<div class="right">
+ <img src="/static/iitklogo.jpg" align="left" hspace="20">
+</div>
+</div>
+
+
+<p><center><input class="button"  type="submit" value="Compute"></form></center></p>
+<div class="lrbelow">
+  <center>
+{% if result != None %}
+{% load static %}
+<img src="/{{ result }}" width=500 >
+{% endif %}
+</center>
+</div>
+</div>
+</div>
+
+
+</body>
+
+
+
+
+<style>
+.footer{
+    background-color:blue;
+    height: 20px;
+    position: relative;
+    clear: both;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+
+}
+</style>
+
+
+<div class="footer">
+<center><font color="orange"><b>&copy; Quantum Optics and Entanglement Group </b></font></center>
+</div>
+
+</html>
+
+
